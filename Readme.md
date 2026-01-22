@@ -68,6 +68,7 @@ docker build -t market-sentinel .
 
 # 3. Run the container
 docker run -it market-sentinel
+```
 
 ## 📊 Visual Output Sample
 *(Sample chart generated via Python integration)*
