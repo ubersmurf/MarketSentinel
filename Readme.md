@@ -53,7 +53,7 @@ src/main/java/com/taha/marketsentinel/
 ├── model/        # Abstract & Concrete Entities
 ├── observer/     # Event Handling System
 ├── service/      # Business Logic & Python Bridge
-└── strategy/     # Algorithmic Implementations
+└── strategy/     # Algorithmic Implementations```
 
 ## 🚀 Getting Started
 
