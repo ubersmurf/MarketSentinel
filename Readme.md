@@ -46,14 +46,13 @@ This project is built to showcase the practical application of **GoF (Gang of Fo
 
 ## 📂 Project Structure (Package by Layer)
 
-```text
 src/main/java/com/taha/marketsentinel/
 ├── config/       # Singleton Implementations
 ├── factory/      # Asset Creation Logic
 ├── model/        # Abstract & Concrete Entities
 ├── observer/     # Event Handling System
 ├── service/      # Business Logic & Python Bridge
-└── strategy/     # Algorithmic Implementations```
+└── strategy/     # Algorithmic Implementations
 
 ## 🚀 Getting Started
 
