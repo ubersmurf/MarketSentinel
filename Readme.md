@@ -46,6 +46,7 @@ This project is built to showcase the practical application of **GoF (Gang of Fo
 
 ## 📂 Project Structure (Package by Layer)
 
+```text
 src/main/java/com/taha/marketsentinel/
 ├── config/       # Singleton Implementations
 ├── factory/      # Asset Creation Logic
