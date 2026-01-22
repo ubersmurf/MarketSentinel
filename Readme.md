@@ -89,6 +89,7 @@ The project follows **TDD (Test Driven Development)** principles using **JUnit 5
 ### ▶ Run Tests
 ```bash
 ./mvnw test
+```
 
 ## 🗺️ Roadmap
 - [x] Core Skeleton & Architecture
