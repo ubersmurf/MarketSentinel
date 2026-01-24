@@ -1,11 +1,10 @@
 package com.marketsentinel.model;
 
 public abstract class Asset {
-    // This should hold the common member fields for future assets
     protected String symbol;
     protected double price;
 
-    public Asset(String symbol, double price) {
+    public Asset(String symbol) {
         this.symbol = symbol;
     }
 

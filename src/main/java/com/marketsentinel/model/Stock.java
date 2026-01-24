@@ -2,8 +2,8 @@ package com.marketsentinel.model;
 
 public class Stock extends Asset {
 
-    public Stock(String symbol, double price) {
-        super(symbol, price);
+    public Stock(String symbol) {
+        super(symbol);
     }
 
     @Override

@@ -2,8 +2,8 @@ package com.marketsentinel.model;
 
 public class Crypto extends Asset {
 
-    public Crypto(String symbol, double price) {
-        super(symbol, price);
+    public Crypto(String symbol) {
+        super(symbol);
     }
 
     @Override
