@@ -2,6 +2,7 @@ package com.marketsentinel;
 
 import com.marketsentinel.service.MarketService;
 import com.marketsentinel.strategy.AnalysisStrategy;
+import com.marketsentinel.strategy.MovingAverageStrategy;
 import com.marketsentinel.strategy.RSIStrategy;
 import com.marketsentinel.factory.AssetFactory;
 import com.marketsentinel.factory.CryptoFactory;
@@ -29,6 +30,11 @@ public class App {
         crypto.setPrice(45000.0);
         crypto.setPrice(60000.0);
 
+        AnalysisStrategy strategy2 = new MovingAverageStrategy(40000.0);
+        tradeBot.setStrategy(strategy2);
+
+        crypto.setPrice(30000.0);
+        crypto.setPrice(45000.0);
 
     }
 }

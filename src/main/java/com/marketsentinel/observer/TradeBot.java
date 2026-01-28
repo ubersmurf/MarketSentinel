@@ -21,7 +21,6 @@ public class TradeBot implements Observer {
 
     public void setStrategy(AnalysisStrategy strategy) {
         this.strategy = strategy;
+        Logger.warn("[TradeBot] Strategy change detected new strategy: " + strategy.getName());
     }
-    
-    
 }

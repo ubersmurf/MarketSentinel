@@ -16,4 +16,9 @@ public class RSIStrategy implements AnalysisStrategy {
         }
         return signal;
     }
+
+    @Override
+    public String getName() {
+        return getClass().getSimpleName();
+    }
 }
