@@ -4,6 +4,7 @@ import java.time.LocalTime;
 
 public final class Logger {
 
+    // Singleton
     private Logger() {}
 
     // ANSI colors
