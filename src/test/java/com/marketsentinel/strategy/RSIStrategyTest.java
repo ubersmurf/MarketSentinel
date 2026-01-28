@@ -16,9 +16,9 @@ public class RSIStrategyTest {
         Asset btc = new CryptoFactory().create("BTC");
         btc.setPrice(30000.0);
 
-        String signal = strategy.analyze(btc);
+        Signal signal = strategy.analyze(btc);
 
-        assertEquals("BUY", signal);
+        assertEquals("BUY", signal.getLabel());
     }
 
     @Test
@@ -28,9 +28,9 @@ public class RSIStrategyTest {
         Asset btc = new CryptoFactory().create("BTC");
         btc.setPrice(60000.0);
         
-        String signal = strategy.analyze(btc);
+        Signal signal = strategy.analyze(btc);
 
-        assertEquals("SELL", signal);
+        assertEquals("SELL", signal.getLabel());
     }
 
     @Test
@@ -39,8 +39,8 @@ public class RSIStrategyTest {
         Asset btc = new CryptoFactory().create("BTC");
         btc.setPrice(45000.0);
 
-        String signal = strategy.analyze(btc);
+        Signal signal = strategy.analyze(btc);
 
-        assertEquals("HOLD", signal);
+        assertEquals("HOLD", signal.getLabel());
     }
 }

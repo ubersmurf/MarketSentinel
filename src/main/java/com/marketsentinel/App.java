@@ -1,11 +1,13 @@
 package com.marketsentinel;
 
 import com.marketsentinel.service.MarketService;
+import com.marketsentinel.strategy.AnalysisStrategy;
+import com.marketsentinel.strategy.RSIStrategy;
 import com.marketsentinel.factory.AssetFactory;
 import com.marketsentinel.factory.CryptoFactory;
-import com.marketsentinel.factory.StockFactory;
 import com.marketsentinel.model.Asset;
 import com.marketsentinel.observer.ConsoleLogger;
+import com.marketsentinel.observer.TradeBot;
 
 public class App {
     public static void main(String[] args) {
@@ -13,16 +15,20 @@ public class App {
         MarketService service = new MarketService();
 
         AssetFactory cryptoFactory = new CryptoFactory();
-        AssetFactory stockFactory = new StockFactory();
 
-        Asset myBitcoin = service.createAndTrackAsset(cryptoFactory, "BTC");
-        Asset myAppleStock = service.createAndTrackAsset(stockFactory, "AAPL");
+        Asset crypto = service.createAndTrackAsset(cryptoFactory, "BTC");
 
-        ConsoleLogger logger = new ConsoleLogger();
+        ConsoleLogger consoleLogger = new ConsoleLogger();
+        crypto.addObserver(consoleLogger);
 
-        myBitcoin.addObserver(logger);
-        System.out.println("*** Price change simulation ***");
-        myBitcoin.setPrice(46000.0);
-        myBitcoin.setPrice(45500.0);
+        AnalysisStrategy strategy = new RSIStrategy();
+        TradeBot tradeBot = new TradeBot(strategy);
+        crypto.addObserver(tradeBot);
+
+        crypto.setPrice(30000.0);
+        crypto.setPrice(45000.0);
+        crypto.setPrice(60000.0);
+
+
     }
 }

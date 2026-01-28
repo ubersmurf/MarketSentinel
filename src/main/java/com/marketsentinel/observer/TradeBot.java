@@ -3,6 +3,7 @@ package com.marketsentinel.observer;
 import com.marketsentinel.model.Asset;
 import com.marketsentinel.service.Logger;
 import com.marketsentinel.strategy.AnalysisStrategy;
+import com.marketsentinel.strategy.Signal;
 
 public class TradeBot implements Observer {
 
@@ -14,14 +15,8 @@ public class TradeBot implements Observer {
 
     @Override
     public void update(Asset asset) {
-        String signal = strategy.analyze(asset);
-        if (signal.equals("BUY")) {
-            Logger.success("[TradeBot] 🟢 BUY ORDER: " + asset.getSymbol());
-        } else if (signal.equals("SELL")) {
-            Logger.error("[TradeBot] 🔴 SELL ORDER: " + asset.getSymbol());
-        } else {
-            Logger.info("[TradeBot] ⏸️ HOLD...");
-        }
+        Signal signal = strategy.analyze(asset);
+        Logger.info("[TradeBot] " + signal.getLabel() + " ORDER: " + asset.getSymbol());
     }
 
     public void setStrategy(AnalysisStrategy strategy) {

@@ -4,7 +4,7 @@ import com.marketsentinel.model.Asset;
 
 public class RSIStrategy implements AnalysisStrategy {
     @Override
-    public String analyze(Asset asset) {
+    public Signal analyze(Asset asset) {
         double price = asset.getPrice();
         Signal signal = Signal.HOLD;
 
@@ -14,7 +14,6 @@ public class RSIStrategy implements AnalysisStrategy {
         if (price > 50000) {
             signal = Signal.SELL;
         }
-
-        return signal.getLabel();
+        return signal;
     }
 }
