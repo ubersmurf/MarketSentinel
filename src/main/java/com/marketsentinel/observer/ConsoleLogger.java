@@ -8,6 +8,6 @@ public class ConsoleLogger implements Observer {
     
     @Override
     public void update(Asset asset) {
-        Logger.info("[OBSERVER] Price Change Detected: " + asset.getSymbol() + "->" + asset.getPrice());
+        Logger.info("[ConsoleLogger] Price Change Detected: " + asset.getSymbol() + "->" + asset.getPrice());
     }
 }
