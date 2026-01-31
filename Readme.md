@@ -71,7 +71,8 @@ docker run -it market-sentinel
 ```
 
 ## 📊 Visual Output Sample
-*(Sample chart generated via Python integration)*
+<img width="640" height="480" alt="chart" src="https://github.com/user-attachments/assets/1dfb49ce-9381-4c63-b800-a969b338b6e0" />
+
 
 ---
 
