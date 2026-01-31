@@ -42,8 +42,6 @@ public class APIManager {
         return price + changeAmount;
     }
     
-
-
     // For testing purposes only
     static void resetInstance() {
         instance = null;
