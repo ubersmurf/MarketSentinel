@@ -91,13 +91,6 @@ The project follows **TDD (Test Driven Development)** principles using **JUnit 5
 ./mvnw test
 ```
 
-## 🗺️ Roadmap
-- [x] Core Skeleton & Architecture
-- [ ] Design Pattern Implementations
-- [ ] Python Data Analysis Integration
-- [ ] Dockerization
-- [ ] Web API Conversion (Spring Boot) *(Future Plan)*
-
 ---
 
 ## 👤 Author
@@ -105,6 +98,4 @@ The project follows **TDD (Test Driven Development)** principles using **JUnit 5
 
 ---
 
-## 📌 Status
-🟡 **In Active Development**  
 *(Engineering Bootcamp Project)*
