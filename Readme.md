@@ -56,7 +56,7 @@ This project is built to showcase the practical application of **GoF (Gang of Fo
 
 ---
 
-## 🐳 Running with Docker (The Engineering Way)
+## 🐳 Running with Docker
 MarketSentinel is fully containerized — no need to install Java or Python dependencies manually.
 
 ```bash
@@ -94,9 +94,15 @@ The project follows **TDD (Test Driven Development)** principles using **JUnit 5
 
 ---
 
+### Educational Context
+**This project was developed during my 2nd year as a Computer Science student to demonstrate:**
+ - Object-Oriented Design
+ - Design Patterns
+ - Multi-language system integration
+
+---
+
 ## 👤 Author
 **Taha**
 
 ---
-
-*(Engineering Bootcamp Project)*
