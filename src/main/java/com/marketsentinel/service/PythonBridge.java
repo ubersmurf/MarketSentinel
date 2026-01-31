@@ -6,39 +6,42 @@ import java.io.File;
 
 public class PythonBridge {
 
-    public void generateGraph() {
+    private final String pythonCommand;
+    private final File workingDir;
+
+    public PythonBridge(String pythonCommand, File workingDir) {
+        this.pythonCommand = pythonCommand;
+        this.workingDir = workingDir;
+    }
+
+    public PythonBridge() {
+        this("python", new File(System.getProperty("user.dir")));
+    }
+
+    public int generateGraph() {
         try {
             ProcessBuilder pb = new ProcessBuilder(
-                    "python",
+                    pythonCommand,
                     "python_scripts/plotter.py"
             );
 
-            pb.directory(new File(System.getProperty("user.dir")));
-
+            pb.directory(workingDir);
             pb.redirectErrorStream(true);
 
             Process process = pb.start();
 
-            BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(process.getInputStream())
-            );
-
-            String line;
-            while ((line = reader.readLine()) != null) {
-                Logger.error("[PYTHON] " + line);
+            try (BufferedReader reader =
+                         new BufferedReader(new InputStreamReader(process.getInputStream()))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    Logger.error("[PYTHON] " + line);
+                }
             }
 
-            int exitCode = process.waitFor();
-
-            if (exitCode == 0) {
-                Logger.success("[PythonBridge] Created graph at: data/chart.png");
-            } else {
-                Logger.error("[PythonBridge] Python failed! EXIT CODE: " + exitCode);
-            }
+            return process.waitFor();
 
         } catch (Exception e) {
-            Logger.error("[PythonBridge] Exception while running Python");
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 }
