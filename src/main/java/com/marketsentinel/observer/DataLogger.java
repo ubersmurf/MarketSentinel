@@ -23,16 +23,19 @@ public class DataLogger implements Observer {
 
     public static void writeDataLineByLine(String filePath, String[] data) {
         File file = new File(filePath);
-        try {
-            FileWriter outputfile = new FileWriter(file, true);
+        boolean fileExists = file.exists();
 
-            CSVWriter writer = new CSVWriter(outputfile);
+        try (FileWriter outputfile = new FileWriter(file, true);
+            CSVWriter writer = new CSVWriter(outputfile)) {
+
+            if (!fileExists || file.length() == 0) {
+                String[] header = { "Timestamp", "Price" };
+                writer.writeNext(header);
+            }
 
             writer.writeNext(data);
 
-            writer.close();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
