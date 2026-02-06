@@ -21,6 +21,10 @@ It features a **Hybrid Architecture** where a high-performance **Java Backend** 
 ## 🏗️ Engineering & Architecture
 This project is built to showcase the practical application of **GoF (Gang of Four) Design Patterns**.
 
+### 📐 UML Class Diagram
+<img width="1471" height="1151" alt="uml" src="https://github.com/user-attachments/assets/6475060c-a4d8-4958-af21-852e04c44083" />
+
+
 ### 1️⃣ Creational Patterns
 - **Singleton Pattern (`APIManager`)**  
   Ensures a single point of access for external Market Data APIs, managing connection pools and preventing resource overuse.
