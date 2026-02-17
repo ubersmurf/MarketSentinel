@@ -67,11 +67,19 @@ MarketSentinel is fully containerized — no need to install Java or Python depe
 # 1. Clone the repository
 git clone https://github.com/username/MarketSentinel.git
 
-# 2. Build the Docker image
-docker build -t market-sentinel .
+# 2. Build the Docker image 
+docker build --no-cache -t marketsentinel .
 
 # 3. Run the container
-docker run -it market-sentinel
+
+# Linux / macOS
+docker run -it -v $(pwd)/data:/app/data marketsentinel
+
+# Windows CMD
+docker run -it -v %cd%\data:/app/data marketsentinel
+
+# Windows PowerShell
+docker run -it -v ${PWD}/data:/app/data marketsentinel
 ```
 
 ## 📊 Visual Output Sample
@@ -93,7 +101,7 @@ The project follows **TDD (Test Driven Development)** principles using **JUnit 5
 
 ### ▶ Run Tests
 ```bash
-./mvnw test
+mvn test
 ```
 
 ---
