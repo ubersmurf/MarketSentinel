@@ -1,27 +1,41 @@
-FROM maven:3.8.5-openjdk-17 AS builder
+# ---------- BUILD STAGE ----------
+FROM maven:3.9.6-eclipse-temurin-17 AS builder
 
 WORKDIR /app
 
 COPY pom.xml .
+RUN mvn -B dependency:go-offline
 
 COPY src ./src
-
 RUN mvn clean package -DskipTests
 
-FROM openjdk:17-jdk-slim
+
+# ---------- RUNTIME STAGE ----------
+FROM eclipse-temurin:17-jdk-jammy
 
 WORKDIR /app
 
+# Install Python + venv
 RUN apt-get update && \
-    apt-get install -y python3 python3-pip && \
+    apt-get install -y python3 python3-pip python3-venv && \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install pandas matplotlib --break-system-packages
+# Create virtual environment
+RUN python3 -m venv /opt/venv
 
-COPY --from=builder /app/target/*.jar app.jar
+# Activate venv path
+ENV PATH="/opt/venv/bin:$PATH"
 
+# Install Python packages inside venv
+RUN pip install --upgrade pip
+RUN pip install pandas matplotlib
+
+# Copy jar
+COPY --from=builder /app/target/marketsentinel-1.0-SNAPSHOT.jar app.jar
+
+# Copy python scripts
 COPY python_scripts ./python_scripts
 
-RUN mkdir data
+RUN mkdir -p data
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
