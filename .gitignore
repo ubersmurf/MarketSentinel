@@ -8,14 +8,14 @@ target/
 *.ear
 
 # =====================
-# IDE'ler
+# IDE's
 # =====================
 .vscode/
 .idea/
 *.iml
 
 # =====================
-# OS dosyaları
+# OS files
 # =====================
 .DS_Store
 Thumbs.db

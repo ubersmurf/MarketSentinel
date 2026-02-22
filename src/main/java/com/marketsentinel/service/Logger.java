@@ -16,7 +16,6 @@ public final class Logger {
     private static final String CYAN = "\u001B[36m";
     private static final String GRAY = "\u001B[90m";
 
-    // ---- Public API ----
     public static void info(String msg) {
         log("INFO", BLUE, msg);
     }
@@ -37,7 +36,6 @@ public final class Logger {
         log("DEBUG", CYAN, msg);
     }
 
-    // ---- Core ----
     private static void log(String level, String color, String msg) {
         String time = LocalTime.now().toString();
         System.out.println(
